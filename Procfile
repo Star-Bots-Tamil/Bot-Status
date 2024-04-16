@@ -1,1 +1,1 @@
-worker: python3 star.py
+web: python3 star.py
