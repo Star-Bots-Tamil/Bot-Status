@@ -8,7 +8,7 @@ import pytz
 import os
 
 app = Client(
-    name = "botstatus_teletips",
+    name = "botstatus",
     api_id = int(os.environ["API_ID"]),
     api_hash = os.environ["API_HASH"],
     session_string = os.environ["SESSION_STRING"]
@@ -24,6 +24,8 @@ async def main_teletips():
     async with app:
             while True:
                 print("Checking...")
+                bot_entity = await app.get_entity(BOT_LIST)  # Replace BOT_USERNAME with your bot's username
+                bot_name = bot_entity.first_name  # Get the first name of the bot
                 xxx_teletips = f"📈 **Real Time Bot Status**"
                 for bot in BOT_LIST:
                     try:
@@ -34,10 +36,10 @@ async def main_teletips():
                         async for ccc in zzz_teletips:
                             bbb = ccc.id
                         if aaa == bbb:
-                            xxx_teletips += f"\n\n🤖  @{bot}\n        └ **Down** ❌"
+                            xxx_teletips += f"\n\n🤖  [bot_name](https://t.me/{bot})\n        └ **Down** ❌"
                             for bot_admin_id in BOT_ADMIN_IDS:
                                 try:
-                                    await app.send_message(int(bot_admin_id), f"🚨 **Beep! Beep!! @{bot} is down** ❌")
+                                    await app.send_message(int(bot_admin_id), f"🚨 **Alert!! @{bot} is Down** ❌")
                                 except Exception:
                                     pass
                             await app.read_chat_history(bot)
