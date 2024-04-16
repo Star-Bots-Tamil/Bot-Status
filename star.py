@@ -38,7 +38,7 @@ async def main_teletips():
                         async for ccc in zzz_teletips:
                             bbb = ccc.id
                         if aaa == bbb:
-                            xxx_teletips += f"\n\n🤖  [bot_name](https://t.me/{bot})\n        └ **Down** ❌"
+                            xxx_teletips += f"\n\n🤖  [{bot_name}](https://t.me/{bot})\n        └ **Down** ❌"
                             for bot_admin_id in BOT_ADMIN_IDS:
                                 try:
                                     await app.send_message(int(bot_admin_id), f"🚨 **Alert!! @{bot} is Down** ❌")
@@ -46,7 +46,7 @@ async def main_teletips():
                                     pass
                             await app.read_chat_history(bot)
                         else:
-                            xxx_teletips += f"\n\n🤖  @{bot}\n        └ **Alive** ✅"
+                            xxx_teletips += f"\n\n🤖  [{bot_name}](https://t.me/{bot})\n        └ **Alive** ✅"
                             await app.read_chat_history(bot)
                     except FloodWait as e:
                         await asyncio.sleep(e.x)            
