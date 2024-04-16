@@ -24,10 +24,12 @@ async def main_teletips():
     async with app:
             while True:
                 print("Checking...")
-                bot_entity = await app.get_entity(BOT_LIST)  # Replace BOT_USERNAME with your bot's username
-                bot_name = bot_entity.first_name  # Get the first name of the bot
+                #bot_entity = await app.get_entity(BOT_LIST)  # Replace BOT_USERNAME with your bot's username
+                #bot_name = bot_entity.first_name  # Get the first name of the bot
                 xxx_teletips = f"📈 **Real Time Bot Status**"
                 for bot in BOT_LIST:
+                    bot_entity = await app.get_users(bot)
+                    bot_name = bot_entity.first_name  # Get the first name of the bot
                     try:
                         yyy_teletips = await app.send_message(bot, "/start")
                         aaa = yyy_teletips.id
