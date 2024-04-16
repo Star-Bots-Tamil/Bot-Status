@@ -1,1 +1,1 @@
-worker: python3 botstatus_teletips.py
+worker: python3 star.py
