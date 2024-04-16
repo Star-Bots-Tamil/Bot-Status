@@ -52,7 +52,15 @@ async def main_teletips():
                 await app.edit_message_text(int(CHANNEL_OR_GROUP_ID), MESSAGE_ID, xxx_teletips)
                 print(f"Last checked on: {last_update}")                
                 await asyncio.sleep(6300)
-                        
-app.run(main_teletips())
 
-#Copyright ©️ 2021 TeLe TiPs. All Rights Reserved
+async def init():
+    if WEBHOOK:
+        app_runner = web.AppRunner(await web_server())
+        await app_runner.setup()       
+        await web.TCPSite(app_runner, "0.0.0.0", 8080).start()
+
+if __name__ == "__main__":
+    loop = asyncio.get_event_loop()
+    loop.create_task(main_teletips())
+    loop.create_task(init())
+    loop.run_forever()
