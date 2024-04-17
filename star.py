@@ -53,7 +53,7 @@ async def main_teletips():
                 xxx_teletips += f"**\n\n👨🏻‍💻 Developer :- [Karthik](https://t.me/TG_Karthik)\n\n✓ Last Checked on :- {last_update} ({TIME_ZONE})\n\n♻️ Refreshes Automatically\n\n© Managed By :- [Star Bots Tamil](https://t.me/Star_Bots_Tamil)**"
                 await app.edit_message_text(int(CHANNEL_OR_GROUP_ID), MESSAGE_ID, xxx_teletips)
                 print(f"Last Checked on :- {last_update}")                
-                await asyncio.sleep(6300)
+                await asyncio.sleep(3600)
 
 async def init():
     if WEBHOOK:
